@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Simon Says - Trabajo Final</title>
+  <link rel="stylesheet" href="css/reset.css" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <main class="container">
+    <header class="header">
+      <h1 class="title">SIMON SAYS</h1>
+      <nav class="nav">
+        <a href="contacto.html" class="nav-link">Contacto</a>
+        <a href="https://github.com/" target="_blank" rel="noopener" class="nav-link">GitHub</a>
+      </nav>
+    </header>
+
+    <section class="game-panel">
+      <form id="player-form" class="player-form" action="#" novalidate>
+        <label for="player-name">Nombre (mínimo 3 letras)</label>
+        <input id="player-name" name="playerName" type="text" required />
+        <button id="start-btn" type="submit">Comenzar</button>
+      </form>
+
+      <div id="game-info" class="game-info hidden">
+        <div>Jugador: <span id="display-player"></span></div>
+        <div>Nivel: <span id="display-level">0</span></div>
+        <div>Puntaje: <span id="display-score">0</span></div>
+        <div>Tiempo: <span id="display-timer">0s</span></div>
+        <button id="ranking-btn" type="button">Ver Ranking</button>
+      </div>
+
+      <div id="board" class="board hidden">
+        <div class="pad row">
+          <button class="pad-btn pad-green" data-color="green" id="green"></button>
+          <button class="pad-btn pad-red" data-color="red" id="red"></button>
+        </div>
+        <div class="pad row">
+          <button class="pad-btn pad-yellow" data-color="yellow" id="yellow"></button>
+          <button class="pad-btn pad-blue" data-color="blue" id="blue"></button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="lost-modal" class="modal hidden" role="dialog" aria-modal="true">
+    <div class="modal-content">
+      <h2>Perdiste</h2>
+      <p id="lost-msg">Puntuación final: 0</p>
+      <button id="restart-btn">Reiniciar</button>
+    </div>
+  </div>
+
+  <div id="ranking-modal" class="modal hidden" role="dialog" aria-modal="true">
+    <div class="modal-content">
+      <h2>Ranking</h2>
+      <div class="ranking-controls">
+        <button id="sort-score">Ordenar por Puntaje</button>
+        <button id="sort-date">Ordenar por Fecha</button>
+      </div>
+      <div id="ranking-list"></div>
+      <button id="close-ranking">Cerrar</button>
+    </div>
+  </div>
+
+  <!-- <script src="js/storage.js"></script> -->
+  <script src="js/ui.js"></script>
+  <script src="js/coreGame.js"></script>
+</body>
+</html>

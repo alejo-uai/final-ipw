@@ -1,0 +1,76 @@
+'use strict';
+
+(function () {
+  var playerForm = document.getElementById('player-form');
+  var playerNameInput = document.getElementById('player-name');
+  var startBtn = document.getElementById('start-btn');
+
+  var gameInfo = document.getElementById('game-info');
+  var displayPlayer = document.getElementById('display-player');
+  var displayLevel = document.getElementById('display-level');
+  var displayScore = document.getElementById('display-score');
+  var displayTimer = document.getElementById('display-timer');
+
+  var board = document.getElementById('board');
+  var pads = document.querySelectorAll('.pad-btn');
+
+  var lostModal = document.getElementById('lost-modal');
+  var lostMsg = document.getElementById('lost-msg');
+  var restartBtn = document.getElementById('restart-btn');
+
+  function validatePlayerName(name) {
+    var re = /^[A-Za-z0-9 ]{3,}$/;
+    return re.test(name);
+  }
+
+  if (playerForm) {
+    playerForm.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var name = playerNameInput.value.trim();
+      if (!validatePlayerName(name)) {
+        alert('El nombre debe tener al menos 3 caracteres alfanuméricos.');
+        playerNameInput.focus();
+        return;
+      }
+      if (window.SimonGame && typeof window.SimonGame.startGame === 'function') {
+        window.SimonGame.startGame(name);
+      }
+      displayPlayer.textContent = name;
+      playerForm.className += ' hidden';
+      gameInfo.className = gameInfo.className.replace('hidden','').trim();
+      board.className = board.className.replace('hidden','').trim();
+    }, false);
+  }
+
+  // pad clicks
+  pads.forEach = Array.prototype.forEach;
+  pads.forEach(function (pad) {
+    pad.addEventListener('click', function () {
+      var color = this.getAttribute('data-color');
+      if (window.SimonGame && typeof window.SimonGame.handlePlayerInput === 'function') {
+        window.SimonGame.handlePlayerInput(color);
+      }
+    }, false);
+  });
+
+  // modal controls
+  restartBtn.addEventListener('click', function () {
+    lostModal.className += ' hidden';
+    if (window.SimonGame && typeof window.SimonGame.reset === 'function') {
+      window.SimonGame.reset();
+    }
+    playerForm.className = playerForm.className.replace(' hidden','').trim();
+    gameInfo.className += ' hidden';
+    board.className += ' hidden';
+  }, false);
+
+  window.SimonUI = {
+    updateLevel: function (lvl) { displayLevel.textContent = lvl; },
+    updateScore: function (score) { displayScore.textContent = score; },
+    updateTimer: function (s) { displayTimer.textContent = s + 's'; },
+    showLostModal: function (finalScore) {
+      lostMsg.textContent = 'Puntuación final: ' + finalScore;
+      lostModal.className = lostModal.className.replace('hidden','').trim();
+    }
+  };
+})();

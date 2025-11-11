@@ -1,0 +1,107 @@
+
+:root {
+  --bg: #0f1724;
+  --panel: #0b1220;
+  --accent: #22c55e;
+  --text: #e6eef8;
+  --muted: #9fb0c9;
+}
+
+/* layout */
+.container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  background: var(--bg);
+  color: var(--text);
+  padding: 2rem;
+}
+
+.header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.title { font-size: 2rem; }
+
+.nav { display: flex; gap: 1rem; }
+
+.game-panel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* player form */
+.player-form {
+  display: flex;
+  gap: .5rem;
+  align-items: center;
+}
+
+/* board */
+.board {
+  width: 320px;
+  height: 320px;
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+}
+
+.row {
+  display: flex;
+  flex: 1;
+  gap: .5rem;
+}
+
+.pad-btn {
+  flex: 1;
+  border-radius: 12px;
+  border: none;
+  box-shadow: 0 6px rgba(0,0,0,0.3);
+  transition: transform .12s ease;
+}
+
+.pad-green { background: #16a34a; }
+.pad-red   { background: #dc2626; }
+.pad-yellow{ background: #f59e0b; }
+.pad-blue  { background: #2563eb; }
+
+.pad-btn.active {
+  opacity: 1;
+  filter: brightness(1.8);
+  transform: scale(1.05);
+  transition: all 0.25s ease;
+}
+
+/* modal */
+.modal {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0,0,0,0.6);
+}
+
+.modal-content {
+  background: var(--panel);
+  padding: 1.5rem;
+  border-radius: 10px;
+  min-width: 280px;
+  color: var(--text);
+}
+
+/* ranking list */
+#ranking-list { max-height: 300px; overflow: auto; margin: .5rem 0; }
+
+@media (max-width: 480px) {
+  .board { width: 260px; height: 260px; }
+  .title { font-size: 1.5rem; }
+}
