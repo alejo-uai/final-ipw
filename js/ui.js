@@ -26,6 +26,58 @@
   var sortDate = document.getElementById('sort-date');
   var openRankingPre = document.getElementById('open-ranking-pre');
 
+  var contactForm = document.getElementById('contact-form');
+
+  // CONTACT - VALIDATIONS
+if (contactForm) {
+  contactForm.addEventListener('submit', function (event) {
+
+    event.preventDefault();
+
+    var nameInput = document.getElementById('contact-name');
+    var emailInput = document.getElementById('contact-email');
+    var msgInput = document.getElementById('contact-msg');
+
+    var name = nameInput.value.trim();
+    var email = emailInput.value.trim();
+    var msg = msgInput.value.trim();
+
+    // Validate name
+    var nameRegex = /^[a-zA-Z0-9 ]{3,}$/;
+    if (!nameRegex.test(name)) {
+      alert('El nombre debe ser alfanumérico y tener al menos 3 caracteres.');
+      return;
+    }
+
+    // Validate email
+    var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      alert('Ingresá un email válido.');
+      return;
+    }
+
+    // Validate mensaje
+    if (msg.length < 5) {
+      alert('El mensaje debe tener al menos 5 caracteres.');
+      return;
+    }
+
+    // If all is OK open open mail tools
+    var subject = encodeURIComponent('Contacto desde Simon Says');
+    var body = encodeURIComponent(
+      'Nombre: ' + name + '\n' +
+      'Email: ' + email + '\n\n' +
+      msg
+    );
+
+    var mailto = 'mailto:?subject=' + subject + '&body=' + body;
+
+    window.location.href = mailto;
+
+  }, false);
+}
+
+
   function validatePlayerName(name) {
     var re = /^[A-Za-z0-9 ]{3,}$/;
     return re.test(name);
