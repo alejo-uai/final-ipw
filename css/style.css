@@ -224,6 +224,22 @@
   text-decoration: underline;
 }
 
+.secondary-btn {
+  padding: 0.65rem;
+  width: 100%;
+  border: 2px solid var(--accent);
+  background: transparent;
+  color: var(--accent);
+  border-radius: 6px;
+  font-weight: bold;
+  font-size: 0.95rem;
+  margin-top: 0.5rem;
+}
+
+.secondary-btn:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
 
 /* ranking list */
 #ranking-list { max-height: 300px; overflow: auto; margin: .5rem 0; }

@@ -87,11 +87,26 @@
   }
 
   // game over
-  function gameOver() {
-    stopTimer();
-    var result = finalizeScore();
-    window.SimonUI.showLostModal(result.finalScore);
-  }
+function gameOver() {
+  stopTimer();
+
+  var elapsed = Math.floor((Date.now() - timerStart) / 1000);
+  var penalty = Math.floor(elapsed * timePenaltyPerSecond);
+  var finalScore = score - penalty;
+  if (finalScore < 0) { finalScore = 0; }
+
+  // Mostrar modal
+  window.SimonUI.showLostModal(finalScore);
+
+  // Guardar en LocalStorage
+  Storage.save({
+    name: playerName,
+    score: finalScore,
+    level: level,
+    date: new Date().toISOString()
+  });
+}
+
 
   // timer
   function startTimer() {

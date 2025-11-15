@@ -18,6 +18,14 @@
   var lostMsg = document.getElementById('lost-msg');
   var restartBtn = document.getElementById('restart-btn');
 
+  var rankingBtn = document.getElementById('ranking-btn');
+  var rankingModal = document.getElementById('ranking-modal');
+  var rankingList = document.getElementById('ranking-list');
+  var closeRanking = document.getElementById('close-ranking');
+  var sortScore = document.getElementById('sort-score');
+  var sortDate = document.getElementById('sort-date');
+  var openRankingPre = document.getElementById('open-ranking-pre');
+
   function validatePlayerName(name) {
     var re = /^[A-Za-z0-9 ]{3,}$/;
     return re.test(name);
@@ -63,6 +71,49 @@
     gameInfo.className += ' hidden';
     board.className += ' hidden';
   }, false);
+
+  // ranking popup
+  rankingBtn.addEventListener('click', function () {
+    populateRanking('score');
+    rankingModal.className = rankingModal.className.replace('hidden','').trim();
+  }, false);
+
+  closeRanking.addEventListener('click', function () {
+    rankingModal.className += ' hidden';
+  }, false);
+  
+  openRankingPre.addEventListener('click', function () {
+  populateRanking('score');
+  rankingModal.className = rankingModal.className.replace('hidden', '').trim();
+}, false);
+
+  sortScore.addEventListener('click', function () { populateRanking('score'); }, false);
+  sortDate.addEventListener('click', function () { populateRanking('date'); }, false);
+
+function populateRanking(orderBy) {
+  var list = Storage.getAll();
+
+  if (orderBy === 'score') {
+    list.sort(function (a, b) { return b.score - a.score; });
+  } else if (orderBy === 'date') {
+    list.sort(function (a, b) { return new Date(b.date) - new Date(a.date); });
+  }
+
+  var html = '<ol>';
+  for (var i = 0; i < list.length; i++) {
+    var item = list[i];
+    html += '<li>' +
+      item.name +
+      ' — ' + item.score + ' pts' +
+      ' — Nivel ' + item.level +
+      ' — ' + new Date(item.date).toLocaleString() +
+      '</li>';
+  }
+  html += '</ol>';
+
+  rankingList.innerHTML = html;
+}
+
 
   window.SimonUI = {
     updateLevel: function (lvl) { displayLevel.textContent = lvl; },
