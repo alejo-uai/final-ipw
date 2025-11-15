@@ -95,10 +95,10 @@ function gameOver() {
   var finalScore = score - penalty;
   if (finalScore < 0) { finalScore = 0; }
 
-  // Mostrar modal
+  // show modal
   window.SimonUI.showLostModal(finalScore);
 
-  // Guardar en LocalStorage
+  // Save on local storage
   Storage.save({
     name: playerName,
     score: finalScore,
@@ -106,8 +106,6 @@ function gameOver() {
     date: new Date().toISOString()
   });
 }
-
-
   // timer
   function startTimer() {
     timerStart = Date.now();
