@@ -12,17 +12,19 @@
     <header class="header">
       <h1 class="title">SIMON SAYS</h1>
       <nav class="nav">
-        <a href="contacto.html" class="nav-link">Contacto</a>
-        <a href="https://github.com/" target="_blank" rel="noopener" class="nav-link">GitHub</a>
+        <a href="contact.html" class="nav-link">Contacto</a>
+        <a href="https://github.com/alejo-uai/final-ipw" target="_blank" rel="noopener" class="nav-link">GitHub</a>
       </nav>
     </header>
 
     <section class="game-panel">
-      <form id="player-form" class="player-form" action="#" novalidate>
-        <label for="player-name">Nombre (mínimo 3 letras)</label>
-        <input id="player-name" name="playerName" type="text" required />
-        <button id="start-btn" type="submit">Comenzar</button>
-      </form>
+        <div class="panel">
+        <form id="player-form" class="player-form" action="#" novalidate>
+            <label for="player-name">Nombre (mínimo 3 letras)</label>
+            <input id="player-name" name="playerName" type="text" required />
+            <button id="start-btn" type="submit">Comenzar</button>
+        </form>
+        </div>
 
       <div id="game-info" class="game-info hidden">
         <div>Jugador: <span id="display-player"></span></div>

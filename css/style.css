@@ -98,6 +98,133 @@
   color: var(--text);
 }
 
+/* contact */
+.contact-panel {
+  background: var(--panel);
+  padding: 2rem;
+  border-radius: 10px;
+  width: 100%;
+  max-width: 420px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  box-shadow: 0 6px rgba(0,0,0,0.3);
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 0.8rem;
+}
+
+.contact-form label {
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: 0.6rem;
+  border: none;
+  border-radius: 6px;
+  background: #1c2333;
+  color: var(--text);
+  font-size: 1rem;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  outline: 2px solid var(--accent);
+}
+
+.contact-form button {
+  padding: 0.7rem;
+  border: none;
+  border-radius: 6px;
+  background: var(--accent);
+  color: #fff;
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+.contact-form button:hover {
+  filter: brightness(1.1);
+}
+
+.panel {
+  background: var(--panel);
+  padding: 2rem;
+  border-radius: 12px;
+  width: 100%;
+  max-width: 420px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 6px rgba(0, 0, 0, 0.3);
+  gap: 1rem;
+}
+
+.player-form,
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  width: 100%;
+}
+
+.player-form label,
+.contact-form label {
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+.player-form input,
+.contact-form input,
+.contact-form textarea {
+  padding: 0.7rem;
+  border-radius: 6px;
+  border: none;
+  background: #1c2333;
+  color: var(--text);
+  font-size: 1rem;
+}
+
+.player-form input:focus,
+.contact-form input:focus,
+.contact-form textarea:focus {
+  outline: 2px solid var(--accent);
+}
+
+.player-form button,
+.contact-form button {
+  padding: 0.75rem;
+  border: none;
+  border-radius: 6px;
+  background: var(--accent);
+  color: white;
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+.player-form button:hover,
+.contact-form button:hover {
+  filter: brightness(1.15);
+}
+
+.nav-link {
+  color: var(--text);
+  opacity: 0.85;
+  font-size: 0.95rem;
+}
+
+.nav-link:hover {
+  opacity: 1;
+  text-decoration: underline;
+}
+
+
 /* ranking list */
 #ranking-list { max-height: 300px; overflow: auto; margin: .5rem 0; }
 

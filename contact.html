@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contacto - Simon Says</title>
+  <link rel="stylesheet" href="css/reset.css" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+    <main class="container">
+        <header class="header">
+            <h1 class="title">CONTACTO</h1>
+            <nav class="nav">
+            <a href="index.html" class="nav-link">Volver</a>
+            <a href="https://github.com/alejo-uai/final-ipw" target="_blank" rel="noopener" class="nav-link">GitHub</a>
+            </nav>
+        </header>
+
+        <div class="panel panel-contact">
+            <form id="contact-form" class="contact-form" action="#" novalidate>
+            <label for="contact-name">Nombre</label>
+            <input id="contact-name" name="name" type="text" required />
+
+            <label for="contact-email">Email</label>
+            <input id="contact-email" name="email" type="email" required />
+
+            <label for="contact-msg">Mensaje</label>
+            <textarea id="contact-msg" name="message" rows="6" required></textarea>
+
+            <button id="contact-submit" type="submit">Enviar</button>
+            </form>
+        </div>
+    </main>
+  <script src="js/ui.js"></script>
+</body>
+</html>
