@@ -31,12 +31,14 @@
   }
 
   function playSequence(seq, index) {
+    updateTurnIndicator(false);
     if (index >= seq.length) {
       isPlaying = false;
+      updateTurnIndicator(true);
       playerSeq = [];
       return;
     }
-    isPlaying = true;
+    isPlaying = true;    
     flash(seq[index], function () {
       setTimeout(function () {
         playSequence(seq, index + 1);
@@ -131,6 +133,7 @@ function gameOver() {
     window.SimonUI.updateScore(score);
     window.SimonUI.updateLevel(level);
     window.SimonUI.updateTimer(0);
+    updateTurnIndicator(false);
     startTimer();
     setTimeout(function () { nextRound(); }, 400);
   }
@@ -152,4 +155,17 @@ function gameOver() {
     handlePlayerInput: handlePlayerInput,
     reset: reset
   };
+
+  function updateTurnIndicator(isPlayerTurn) {
+  var el = document.getElementById('turn-indicator');
+  if (!el) return;
+
+  if (isPlayerTurn) {
+    el.innerHTML = 'Es tu turno...';
+    el.className = 'turn-indicator turn-player';
+  } else {
+    el.innerHTML = 'Mostrando secuencia...';
+    el.className = 'turn-indicator turn-wait';
+  }
+}
 })();

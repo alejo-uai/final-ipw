@@ -22,6 +22,7 @@
         <form id="player-form" class="player-form" action="#" novalidate>
           <label for="player-name">Nombre (mínimo 3 letras)</label>
           <input id="player-name" name="playerName" type="text" required />
+          <p class="error" id="error-player-name"></p>
           <button id="start-btn" type="submit">Comenzar</button>
         </form>
 
@@ -33,7 +34,8 @@
         <div>Nivel: <span id="display-level">0</span></div>
         <div>Puntaje: <span id="display-score">0</span></div>
         <div>Tiempo: <span id="display-timer">0s</span></div>
-        <button id="ranking-btn" type="button">Ver Ranking</button>
+        <p id="turn-indicator" class="turn-indicator">Esperando...</p>
+
       </div>
 
       <div id="board" class="board hidden">
@@ -57,14 +59,27 @@
     </div>
   </div>
 
-  <div id="ranking-modal" class="modal hidden" role="dialog" aria-modal="true">
+  <div id="ranking-modal" class="modal hidden">
     <div class="modal-content">
-      <h2>Ranking</h2>
+      <h2>Ranking de Partidas</h2>
+
       <div class="ranking-controls">
-        <button id="sort-score">Ordenar por Puntaje</button>
-        <button id="sort-date">Ordenar por Fecha</button>
+        <button id="sortScore">Ordenar por Puntaje</button>
+        <button id="sortDate">Ordenar por Fecha</button>
       </div>
-      <div id="ranking-list"></div>
+
+      <table class="ranking-table">
+        <thead>
+          <tr>
+            <th>Jugador</th>
+            <th>Puntaje</th>
+            <th>Nivel</th>
+            <th>Fecha</th>
+          </tr>
+        </thead>
+        <tbody id="ranking-list"></tbody>
+      </table>
+
       <button id="close-ranking">Cerrar</button>
     </div>
   </div>

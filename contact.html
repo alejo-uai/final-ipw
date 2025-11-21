@@ -21,12 +21,15 @@
             <form id="contact-form" class="contact-form" action="#" novalidate>
             <label for="contact-name">Nombre</label>
             <input id="contact-name" name="name" type="text" autocomplete="off" required />
+            <p class="error" id="error-name"></p>
 
             <label for="contact-email">Email</label>
             <input id="contact-email" name="email" type="email" autocomplete="off" required />
+            <p class="error" id="error-email"></p>
 
             <label for="contact-msg">Mensaje</label>
             <textarea id="contact-msg" name="message" rows="6" autocomplete="off" required></textarea>
+            <p class="error" id="error-msg"></p>
 
             <button id="contact-submit" type="submit">Enviar</button>
             </form>

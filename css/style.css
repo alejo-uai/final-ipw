@@ -240,6 +240,52 @@
   background: rgba(255, 255, 255, 0.08);
 }
 
+.turn-indicator {
+  margin-top: 1rem;
+  font-size: 1.1rem;
+  text-align: center;
+  color: var(--muted);
+}
+
+.turn-player {
+  color: var(--accent);
+  font-weight: bold;
+}
+
+.turn-wait {
+  color: var(--muted);
+  opacity: 0.8;
+}
+
+.ranking-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  font-size: 0.9rem;
+}
+
+.ranking-table th {
+  text-align: left;
+  padding: 0.5rem;
+  background: rgba(255,255,255,0.1);
+  color: var(--accent);
+}
+
+.ranking-table td {
+  padding: 0.4rem;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+  color: var(--text);
+}
+
+.ranking-table tr:hover td {
+  background: rgba(255,255,255,0.05);
+}
+
+.error {
+  color: #ff6b6b;
+  font-size: 0.8rem;
+  height: 1rem;
+}
 
 /* ranking list */
 #ranking-list { max-height: 300px; overflow: auto; margin: .5rem 0; }
